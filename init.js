@@ -43,3 +43,29 @@ user2 = ['Jonh',12, 90];
 var  fighter = new Fighter(...user1);
 
 var improvedFighter = new ImprovedFighter(...user2);
+
+//====================================================
+
+let fight = (fighter, improvedFighter, ...point)=> {
+
+    while(fighter.health > 0 && improvedFighter.health > 0) {
+    
+        for ( value of point) {
+            if (improvedFighter.health <= 0 ) {
+                console.log(`Боец ${improvedFighter.name} : проиграл `);
+                return;
+            }
+
+            fighter.hit(improvedFighter, value);
+            if (improvedFighter.health <= 0) {
+                console.log(`Боец ${improvedFighter.name} : проиграл `);
+                return;
+
+            }else{
+                improvedFighter.hit(fighter, value);
+            }
+        }
+    }
+
+}
+fight(fighter, improvedFighter, 3, 5, 5);
