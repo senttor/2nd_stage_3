@@ -1,20 +1,21 @@
-class Fighter {
+class Fighter 
+{
 
-    constructor (name, power , health) {
+    constructor(name, power , health) 
+    {
         this.name = name;
         this.power = power;
         this.health = health;
-
     }
-    setDamage (damage) {
-
+    setDamage(damage)
+    {
         this.health = this.health - damage;
         console.log(`Здоровье: ${this.health}`);
     }
 
 
-    hit (enemy, point) {
-
+    hit(enemy, point) 
+    {
         let damage = point * this.power;
         console.log(damage);
         enemy.setDamage(damage);
@@ -25,20 +26,19 @@ class Fighter {
 
 //=====================================
 
-class ImprovedFighter extends Fighter {
-
-    doubleHit (enemy, point) {
+class ImprovedFighter extends Fighter
+{
+    doubleHit(enemy, point)
+    {
         let doubleHitpoint = point * 2;
         super.hit(enemy, doubleHitpoint);
     }
-
 }
 
 //===================================
 user1 =  ['Mike', 11, 110];
 
 user2 = ['Jonh',12, 90];
-
 
 var  fighter = new Fighter(...user1);
 
@@ -60,8 +60,7 @@ let fight = (fighter, improvedFighter, ...point)=> {
             if (improvedFighter.health <= 0) {
                 console.log(`Боец ${improvedFighter.name} : проиграл `);
                 return;
-
-            }else{
+            } else {
                 improvedFighter.hit(fighter, value);
             }
         }
